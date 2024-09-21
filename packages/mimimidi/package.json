@@ -1,0 +1,16 @@
+{
+	"name": "@mimimidi/mimimidi",
+	"version": "1.0.0",
+	"main": "index.ts",
+	"type": "module",
+	"scripts": {
+		"start": "bun run index.ts"
+	},
+	"dependencies": {
+		"@julusian/midi": "^3.6.1",
+		"@mimimidi/clock-divider": "workspace:*",
+		"@mimimidi/launchcontrol-xl": "workspace:*",
+		"@mimimidi/midi-controls": "workspace:*",
+		"@mimimidi/midi-constants": "workspace:*"
+	}
+}

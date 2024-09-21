@@ -1,0 +1,9 @@
+{
+	"name": "@mimimidi/launchcontrol-xl",
+	"version": "1.0.0",
+	"main": "src/index.ts",
+	"type": "module",
+	"dependencies": {
+		"@julusian/midi": "^3.6.1"
+	}
+}

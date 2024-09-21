@@ -1,0 +1,20 @@
+{
+	"name": "mimimidi",
+	"workspaces": ["packages/*"],
+	"private": true,
+	"scripts": {
+		"start": "bun --filter '@mimimidi/mimimidi' start",
+		"fmt": "biome check --write ."
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.2",
+		"@types/bun": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "^5.0.0"
+	},
+	"trustedDependencies": ["@biomejs/biome", "@julusian/midi"],
+	"dependencies": {
+		"@julusian/midi": "^3.6.1"
+	}
+}

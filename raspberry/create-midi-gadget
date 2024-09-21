@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# Load libcomposite
+modprobe libcomposite
+
+# Create a gadget called mimi
+cd /sys/kernel/config/
+mkdir -p usb_gadget/mimi
+cd usb_gadget/mimi
+
+# Configure our gadget details
+echo 0x1d6b > idVendor # Linux Foundation
+echo 0x0104 > idProduct # Multifunction Composite Gadget
+echo 0x0100 > bcdDevice # v1.0.0
+echo 0x0200 > bcdUSB # USB2
+mkdir -p strings/0x409
+echo "fedcba9876543210" > strings/0x409/serialnumber
+echo "Incapable Inc." > strings/0x409/manufacturer
+echo "MIMIMIDI Controller" > strings/0x409/product
+mkdir -p configs/c.1/strings/0x409
+echo "MIMIMIDI" > configs/c.1/strings/0x409/configuration
+echo 250 > configs/c.1/MaxPower
+
+# MIDI gadget
+mkdir -p functions/midi.usb0
+# id     - ID string for the USB MIDI adapter
+echo "mimimidi" > functions/midi.usb0/id
+ln -s functions/midi.usb0 configs/c.1/
+
+# End functions
+udevadm settle -t 5
+ls /sys/class/udc > UDC
