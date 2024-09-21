@@ -1,0 +1,11 @@
+[Unit]
+Description=Create MIDI gadget
+
+[Service]
+Type=oneshot
+ExecStart=/boot/create-midi-gadget
+StandardInput=tty
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
